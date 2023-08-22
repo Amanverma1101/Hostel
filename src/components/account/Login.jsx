@@ -106,7 +106,7 @@ const Login = ({ isUserAuthenticated }) => {
   const signupUser = async () => {
     console.log(signup);
     try {
-      await customFetch.post("/auth/register", signup);
+      await customFetch.post("/api/v1/register", signup);
       alert("Registration Successful");
       return navigate('/home');
     //   return toggleSignup();
@@ -119,7 +119,7 @@ const Login = ({ isUserAuthenticated }) => {
   const loginUser = async () => {
     console.log(login);
     try {
-      const res = await customFetch.post("/auth/login", login);
+      const res = await customFetch.post("/api/v1/login", login);
       console.log(res);
       if(res.data.success){
       alert("Login Successful");
