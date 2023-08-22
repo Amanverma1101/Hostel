@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import customFetch from "../../service/api";
-import { useState } from "react";
-
+import React, { useState, Fragment } from "react";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
   const [responseData, setResponseData] = useState("Initial Content");
 
@@ -22,13 +23,17 @@ const Home = () => {
       return error;
     }
   };
+     const navigate = useNavigate();
   return (
     <div>
       <div onClick={() => get()}>Home:</div>
       <div>{responseData}</div>
-
-      <Link to='/complain'>Complain</Link>
+      <Fragment>
+        <Button onClick={() => navigate("/roomAllotment")}>Aman</Button>
+      </Fragment>
+      <Link to="/complain">Complain</Link>
     </div>
   );
 };
 export default Home;
+
