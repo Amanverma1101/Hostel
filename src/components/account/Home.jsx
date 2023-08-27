@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import customFetch from "../../service/api";
-import React, { useState, Fragment } from "react";
+import React, { Fragment } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 

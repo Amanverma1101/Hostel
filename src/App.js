@@ -6,8 +6,6 @@ import Complain from './components/Complain.jsx';
 import ComplainForm from './components/ComplainForm.jsx';
 import RoomAllotment from './components/RoomAllotment';
 import RoomDetail from './components/RoomDetail';
-import Complain from "./components/Complain";
-import ComplainForm from "./components/ComplainForm";
 import RoomAllotmentAdmin from './components/AdminRoomAllotment/RoomAllotmentAdmin';
 import NoticeBoard from './components/Notice/NoticeBoard';
 function App() {
@@ -21,8 +19,6 @@ function App() {
           <Route path='/complainForm' element={<ComplainForm/>} />
           <Route path='/roomAllotment' element={<RoomAllotment/>} />
           <Route path='/roomDetail/:roomId' element={<RoomDetail/>} />
-          <Route path='/complain' element={<Complain/>} />
-          <Route path='/complainForm' element={<ComplainForm/>} />
           <Route path='/roomAllotmentAdmin' element={<RoomAllotmentAdmin/>} />
           <Route path='/noticeBoard' element={<NoticeBoard/>} />
           </Routes>
