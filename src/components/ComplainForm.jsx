@@ -2,6 +2,7 @@ import { TextField, Box, Button, Typography, styled } from "@mui/material";
 import React, { useState } from "react";
 import customFetch from "../service/api";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Component = styled(Box)`
    width: 400px;
@@ -76,19 +77,18 @@ const ComplainForm = () => {
   };
 
   const submit = async () => {
-    console.log(complain);
+    // console.log(complain);
     try {
       await customFetch.post(`/api/v1/registerComplain/${token}`, complain);
-      alert("Complaint sent Successfully");
-      return navigate("/home");
+      toast.success("Complaint sent Successfully");
+      return navigate('/complain');
       //   return toggleSignup();
     } catch (error) {
-      console.log(error);
-      alert(error?.response?.data?.msg);
-      return error;
+      // console.log(error);
+      toast.error(error?.response?.data?.msg);
+      return navigate("/complainForm");
     }
-  };
-
+  };  
   return (
     <>
       <div>ComplainForm</div>
@@ -122,7 +122,10 @@ const ComplainForm = () => {
             />
             <SignupButton onClick={() => submit()}>Submit</SignupButton>
             <Text style={{ textAlign: "center" }}>OR</Text>
-            <LoginButton variant="contained" onClick={() => navigate('/complain')}>
+            <LoginButton
+              variant="contained"
+              onClick={() => navigate("/complain")}
+            >
               Go Back
             </LoginButton>
           </Wrapper>

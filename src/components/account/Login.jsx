@@ -6,7 +6,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-
+import { toast } from "react-toastify";
 
 import customFetch from "../../service/api.jsx";
 // import { DataContext } from "../../context/DataProvider";
@@ -120,13 +120,13 @@ const Login = ({ isUserAuthenticated }) => {
   const signupUser = async () => {
     console.log(signup);
     try {
-      await customFetch.post("api/v1/register", signup);
-      alert("Registration Successful");
+      await customFetch.post("/api/v1/register", signup);
+      toast.success("Registration Successful");
       return navigate("/home");
       //   return toggleSignup();
     } catch (error) {
       console.log(error);
-      alert(error?.response?.data?.msg);
+      toast.error(error?.response?.data?.msg);
       return error;
     }
   };
@@ -136,19 +136,18 @@ const Login = ({ isUserAuthenticated }) => {
       const res = await customFetch.post("/api/v1/login", login);
       console.log(res);
       if (res.data.success) {
-        alert("Login Successful");
-
+        toast.success("Login Successful");
         setCookies("token", res.data.token);
         window.localStorage.setItem("_id", res.data.user._id);
         window.localStorage.setItem("token", res.data.token);
         window.localStorage.setItem("role", res.data.user.role);
         return navigate("/home");
       } else {
-        alert("Login Failed");
+        toast.warning("Login Failed");
       }
     } catch (error) {
       console.log(error);
-      alert(error?.response?.data?.msg);
+      toast.error(error?.response?.data?.msg);
       return error;
     }
   };

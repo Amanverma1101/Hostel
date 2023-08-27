@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Toast from './common/Toast.jsx';
+import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <>
+    <Toast />
     <App />
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function
