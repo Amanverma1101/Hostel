@@ -2,8 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { TextField, Box, Button, Typography, styled } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
-import customFetch from "../../service/api";
+
+import customFetch from "../../service/api.jsx";
 // import { DataContext } from "../../context/DataProvider";
 
 const Component = styled(Box)`
@@ -73,7 +78,10 @@ const signupInitialValues = {
   email: "",
   phone: "",
   password: "",
+  bloodGrp: "",
   hostel: "",
+  batch: "",
+  branch: "",
   role: "student",
 };
 
@@ -83,8 +91,15 @@ const Login = ({ isUserAuthenticated }) => {
   const [error, showError] = useState("");
   const [cookies, setCookies] = useCookies(["token"]);
   const [account, toggleAccount] = useState("login");
+  const [h, setH] = useState("");
 
-    const navigate = useNavigate();
+  const handleChange = (e) => {
+    setH(e.target.value);
+    setLogin({ ...login, hostel: e.target.value });
+    setSignup({ ...signup, hostel: e.target.value });
+  };
+
+  const navigate = useNavigate();
   //   const { setAccount } = useContext(DataContext);
 
   const imageURL =
@@ -102,14 +117,13 @@ const Login = ({ isUserAuthenticated }) => {
     setSignup({ ...signup, [e.target.name]: e.target.value });
   };
 
-
   const signupUser = async () => {
     console.log(signup);
     try {
-      await customFetch.post("/api/v1/register", signup);
+      await customFetch.post("api/v1/register", signup);
       alert("Registration Successful");
-      return navigate('/home');
-    //   return toggleSignup();
+      return navigate("/home");
+      //   return toggleSignup();
     } catch (error) {
       console.log(error);
       alert(error?.response?.data?.msg);
@@ -121,13 +135,15 @@ const Login = ({ isUserAuthenticated }) => {
     try {
       const res = await customFetch.post("/api/v1/login", login);
       console.log(res);
-      if(res.data.success){
-      alert("Login Successful");
+      if (res.data.success) {
+        alert("Login Successful");
 
-      setCookies("token", res.data.token);
-      window.localStorage.setItem("_id", res.data.user._id);
-      return navigate('/home');
-      }else{
+        setCookies("token", res.data.token);
+        window.localStorage.setItem("_id", res.data.user._id);
+        window.localStorage.setItem("token", res.data.token);
+        window.localStorage.setItem("role", res.data.user.role);
+        return navigate("/home");
+      } else {
         alert("Login Failed");
       }
     } catch (error) {
@@ -164,7 +180,9 @@ const Login = ({ isUserAuthenticated }) => {
 
             {error && <Error>{error}</Error>}
 
-            <LoginButton variant="contained" onClick={() => loginUser()}>Login</LoginButton>
+            <LoginButton variant="contained" onClick={() => loginUser()}>
+              Login
+            </LoginButton>
             <Text style={{ textAlign: "center" }}>OR</Text>
             <SignupButton
               onClick={() => toggleSignup()}
@@ -208,10 +226,41 @@ const Login = ({ isUserAuthenticated }) => {
             <TextField
               variant="standard"
               onChange={(e) => onInputChange(e)}
-              name="hostel"
-              label="Enter Hostel (BH1,BH2,GH1)"
+              name="bloodGrp"
+              label="Enter Blood Group"
             />
-
+            <TextField
+              variant="standard"
+              onChange={(e) => onInputChange(e)}
+              name="batch"
+              label="Enter Batch"
+            />
+            <TextField
+              variant="standard"
+              onChange={(e) => onInputChange(e)}
+              name="branch"
+              label="Enter Branch"
+            />
+            <FormControl variant="standard" sx={{ m: 1 }}>
+              <InputLabel id="demo-simple-select-standard-label">
+                Hostel
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-standard-label"
+                id="demo-simple-select-standard"
+                value={h}
+                onChange={handleChange}
+                label="Hostel"
+                name="hostel"
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value="BH1">BH1</MenuItem>
+                <MenuItem value="BH2">BH2</MenuItem>
+                <MenuItem value="GH1">GH1</MenuItem>
+              </Select>
+            </FormControl>
             <SignupButton onClick={() => signupUser()}>Signup</SignupButton>
             <Text style={{ textAlign: "center" }}>OR</Text>
             <LoginButton variant="contained" onClick={() => toggleSignup()}>
