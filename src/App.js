@@ -6,10 +6,10 @@ import Complain from './components/Complain.jsx';
 import ComplainForm from './components/ComplainForm.jsx';
 import RoomAllotment from './components/RoomAllotment';
 import RoomDetail from './components/RoomDetail';
-import Complain from "./components/Complain";
-import ComplainForm from "./components/ComplainForm";
 import RoomAllotmentAdmin from './components/AdminRoomAllotment/RoomAllotmentAdmin';
 import NoticeBoard from './components/Notice/NoticeBoard';
+import MessMenu from './components/Mess/MessMenu';
+import MessMenuEdit from './components/Mess/MessMenuEdit';
 function App() {
   return (
     <Router>
@@ -25,6 +25,8 @@ function App() {
           <Route path='/complainForm' element={<ComplainForm/>} />
           <Route path='/roomAllotmentAdmin' element={<RoomAllotmentAdmin/>} />
           <Route path='/noticeBoard' element={<NoticeBoard/>} />
+          <Route path='/messMenu' element={<MessMenu/>} />
+          <Route path='/messMenuEdit' element={<MessMenuEdit/>} />
           </Routes>
       </Router>
   );

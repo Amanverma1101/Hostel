@@ -28,6 +28,7 @@ const Home = () => {
       <Link to="/complain">Complain</Link>
       <br />
       <Link to="/noticeBoard">Notices</Link>
+      <Link to="/messMenu">Mess Menu</Link>
     </div>
   );
 };
