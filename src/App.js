@@ -21,8 +21,6 @@ function App() {
           <Route path='/complainForm' element={<ComplainForm/>} />
           <Route path='/roomAllotment' element={<RoomAllotment/>} />
           <Route path='/roomDetail/:roomId' element={<RoomDetail/>} />
-          <Route path='/complain' element={<Complain/>} />
-          <Route path='/complainForm' element={<ComplainForm/>} />
           <Route path='/roomAllotmentAdmin' element={<RoomAllotmentAdmin/>} />
           <Route path='/noticeBoard' element={<NoticeBoard/>} />
           <Route path='/messMenu' element={<MessMenu/>} />
