@@ -8,6 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import customFetch from "../../service/api";
 import { Typography } from "@material-ui/core";
+import { toast } from "react-toastify";
 
 const weekdays=['Monday','Tuesday','Wednesday','Thrusday','Friday','Saturday','Sunday'];
 
@@ -25,84 +26,78 @@ const MessTable=()=>{
     const fetchData1=async(day)=>{
         try {
             const response= await customFetch.get(`/api/v1/mess/getFoodByDay/${day}`);
-            console.log(response.data.food);
             setRow1(response.data.food);
            
         } catch (error) {;
              console.log(error);
-      alert(error?.response?.data?.msg);
+      toast.error(error?.response?.data?.msg);
       return error;
         }
     }
     const fetchData2=async(day)=>{
         try {
             const response= await customFetch.get(`/api/v1/mess/getFoodByDay/${day}`);
-            console.log(response.data.food);
             setRow2(response.data.food);
            
         } catch (error) {;
              console.log(error);
-      alert(error?.response?.data?.msg);
+      toast.error(error?.response?.data?.msg);
       return error;
         }
     }
     const fetchData3=async(day)=>{
         try {
             const response= await customFetch.get(`/api/v1/mess/getFoodByDay/${day}`);
-            console.log(response.data.food);
             setRow3(response.data.food);
            
         } catch (error) {;
              console.log(error);
-      alert(error?.response?.data?.msg);
+      toast.error(error?.response?.data?.msg);
       return error;
         }
     }
     const fetchData4=async(day)=>{
         try {
             const response= await customFetch.get(`/api/v1/mess/getFoodByDay/${day}`);
-            console.log(response.data.food);
             setRow4(response.data.food);
            
         } catch (error) {;
              console.log(error);
-      alert(error?.response?.data?.msg);
+      toast.error(error?.response?.data?.msg);
       return error;
         }
     }
     const fetchData5=async(day)=>{
         try {
             const response= await customFetch.get(`/api/v1/mess/getFoodByDay/${day}`);
-            console.log(response.data.food);
             setRow5(response.data.food);
            
         } catch (error) {;
              console.log(error);
-      alert(error?.response?.data?.msg);
+      toast.error(error?.response?.data?.msg);
       return error;
         }
     }
     const fetchData6=async(day)=>{
         try {
             const response= await customFetch.get(`/api/v1/mess/getFoodByDay/${day}`);
-            console.log(response.data.food);
             setRow6(response.data.food);
            
         } catch (error) {;
              console.log(error);
-      alert(error?.response?.data?.msg);
+      toast.error(error?.response?.data?.msg);
       return error;
         }
     }
     const fetchData7=async(day)=>{
         try {
             const response= await customFetch.get(`/api/v1/mess/getFoodByDay/${day}`);
-            console.log(response.data.food);
             setRow7(response.data.food);
+            toast.success("Mess Menu fetched !")
            
         } catch (error) {;
              console.log(error);
-      alert(error?.response?.data?.msg);
+      toast.error(error?.response?.data?.msg);
       return error;
         }
     }
