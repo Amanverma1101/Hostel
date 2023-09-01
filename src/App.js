@@ -10,6 +10,7 @@ import RoomAllotmentAdmin from './components/AdminRoomAllotment/RoomAllotmentAdm
 import NoticeBoard from './components/Notice/NoticeBoard';
 import MessMenu from './components/Mess/MessMenu';
 import MessMenuEdit from './components/Mess/MessMenuEdit';
+import MessComitee from './components/Mess/MessComitee';
 function App() {
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
           <Route path='/noticeBoard' element={<NoticeBoard/>} />
           <Route path='/messMenu' element={<MessMenu/>} />
           <Route path='/messMenuEdit' element={<MessMenuEdit/>} />
+          <Route path='/messComitee' element={<MessComitee/>}/>
           </Routes>
       </Router>
   );

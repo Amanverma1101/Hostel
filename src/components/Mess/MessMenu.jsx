@@ -15,7 +15,12 @@ const MessMenu = () => {
             </Grid>
         </div>
         <div>
-            <Button  variant='contained' style={{position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)'}} onClick={()=>navigate('/messMenuEdit')}>EDit</Button>
+            <Button  variant='contained' style={{position: 'absolute', bottom: '20px', left: '20%', transform: 'translateX(-80%)'}} onClick={()=>navigate('/messMenuEdit')}>EDit</Button>
+            <Button  variant='contained' style={{position: 'absolute', bottom: '20px', left: '80%', transform: 'translateX(-40%)'}} onClick={()=>navigate('/messComitee')}>Add/View Mess Comitee</Button>
+            <Button  variant='contained' style={{position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)'}} onClick={()=>navigate('/')}>Raise Complain</Button>
+        </div>
+        <div>
+            
         </div>
         </Fragment>
     );
