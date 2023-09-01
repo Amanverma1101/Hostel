@@ -6,7 +6,7 @@ const MessMenu = () => {
     const navigate=useNavigate();
     return (
         <Fragment>
-        <div style={{position:'absolute',width:'80rem',height:'30rem',top:'50%',left:'50%',padding:'20px',backgroundColor:'tomato',border:'30px solid #802b00',color:'white',transform:'translateX(-50%) translateY(-50%)',borderRadius:'35px'}}>
+        <div style={{position:'absolute',width:'80rem',height:'30rem',top:'50%',left:'50%',padding:'20px',backgroundColor:'#802b0018',border:'30px solid #802b00',color:'white',transform:'translateX(-50%) translateY(-50%)',borderRadius:'35px'}}>
             <Grid xs={12} style={{borderBottom:'3px solid #802b00'}}>
                  <Typography align='center' style={{color:'#802b00',fontSize:'50px'}}>Mess Menu</Typography>
             </Grid>   
