@@ -11,6 +11,8 @@ import NoticeBoard from './components/Notice/NoticeBoard';
 import MessMenu from './components/Mess/MessMenu';
 import MessMenuEdit from './components/Mess/MessMenuEdit';
 import MessComitee from './components/Mess/MessComitee';
+import MessComplain from './components/Mess/MessComplain';
+import MessComplainForm from './components/Mess/MessComplainForm';
 function App() {
   return (
     <Router>
@@ -27,6 +29,8 @@ function App() {
           <Route path='/messMenu' element={<MessMenu/>} />
           <Route path='/messMenuEdit' element={<MessMenuEdit/>} />
           <Route path='/messComitee' element={<MessComitee/>}/>
+          <Route path='/messComplain' element={<MessComplain/>}/>
+          <Route path='/messComplainForm' element={<MessComplainForm/>}/>
           </Routes>
       </Router>
   );

@@ -141,6 +141,8 @@ const Login = ({ isUserAuthenticated }) => {
         window.localStorage.setItem("_id", res.data.user._id);
         window.localStorage.setItem("token", res.data.token);
         window.localStorage.setItem("role", res.data.user.role);
+        window.localStorage.setItem("isMessComitee", res.data.user.isMessComitee
+);
         return navigate("/home");
       } else {
         toast.warning("Login Failed");

@@ -23,6 +23,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const MessComitee = () => {
     const [list, setList] = useState([]);
+    const role = localStorage.getItem("role");
+    const isMessComitee = localStorage.getItem("isMessComitee") === "true";
     const giveAccess = async(uid) => {
             try {
               const response = await customFetch.patch(`/api/v1/mess/giveAccess/${uid}`);
@@ -59,7 +61,14 @@ const MessComitee = () => {
     const getUsers = async()=>{
             try {
                 const response= await customFetch.get(`/api/v1/mess/getUsers`);
-                setList(response.data.users);
+                const list = response.data.users;
+                if (role !== "student" || isMessComitee)
+                    {setList(list);}
+                  else{
+                    const list1 = list.filter((obj) => obj.isMessComitee === true);
+                    setList(list1);
+                    console.log("hii0");
+                  }
             } catch (error) {;
                 console.log(error);
                 toast.error(error?.response?.data?.msg);
@@ -109,7 +118,9 @@ const MessComitee = () => {
                           justifyContent: "space-around",
                         }}
                       >
-                        {!user.isMessComitee ? (
+                        {(role !== "student" || isMessComitee)?
+
+                        (!user.isMessComitee )? (
                           <Button
                             variant="outlined"
                             size="small"
@@ -126,7 +137,10 @@ const MessComitee = () => {
                           >
                             Remove Access
                           </Button>
-                        )}
+                        )
+                        :
+                        <></>
+                        }
                       </CardActions>
                     </Item>
                   </Card>

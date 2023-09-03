@@ -93,7 +93,7 @@ const MessTable=()=>{
         try {
             const response= await customFetch.get(`/api/v1/mess/getFoodByDay/${day}`);
             setRow7(response.data.food);
-            toast.success("Mess Menu fetched !")
+            toast.success("Fetched Latest Mess Menu!");
            
         } catch (error) {;
              console.log(error);
