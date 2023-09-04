@@ -11,6 +11,7 @@ import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
+import { yellow } from "@mui/material/colors";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -62,7 +63,7 @@ const MessComitee = () => {
             try {
                 const response= await customFetch.get(`/api/v1/mess/getUsers`);
                 const list = response.data.users;
-                if (role !== "student" || isMessComitee)
+                if (role !== "student")
                     {setList(list);}
                   else{
                     const list1 = list.filter((obj) => obj.isMessComitee === true);
@@ -94,7 +95,7 @@ const MessComitee = () => {
             return (
               <>
                 <Grid item xs={2} sm={4} md={4} key={index}>
-                  <Card sx={{ minWidth: 275 }}>
+                  <Card sx={user.isMessComitee ? { minWidth: 275,  background: "yellowgreen" } : { minWidth: 275 }}>
                     <Item sx={user.isMessComitee ? { margin: 2, outline:"3px yellow" } : {}}>
                       <CardContent>
                         <Typography variant="h5" component="div">

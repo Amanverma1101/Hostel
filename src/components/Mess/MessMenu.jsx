@@ -19,7 +19,7 @@ const MessMenu = () => {
         <div>
         {(role!=="student" || isMessComitee )?<Button  variant='contained' style={{position: 'absolute', bottom: '20px', left: '20%', transform: 'translateX(-80%)'}} onClick={()=>navigate('/messMenuEdit')}>Edit</Button>:<></>}
             
-            <Button  variant='contained' style={{position: 'absolute', bottom: '20px', left: '80%', transform: 'translateX(-40%)'}} onClick={()=>navigate('/messComitee')}>{(role!=="student" || isMessComitee )?<div>Manage&nbsp;</div>:<div>View &nbsp; </div>} Mess Comitee</Button>
+            <Button  variant='contained' style={{position: 'absolute', bottom: '20px', left: '80%', transform: 'translateX(-40%)'}} onClick={()=>navigate('/messComitee')}>{(role!=="student" )?<div>Manage&nbsp;</div>:<div>View &nbsp; </div>} Mess Comitee</Button>
             <Button  variant='contained' style={{position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)'}} onClick={()=>navigate('/messComplain')}>{(role!=="student" || isMessComitee )?<div>Manage&nbsp;</div>:<div>Raise&nbsp; </div>} Complain</Button>
         </div>
         <div>

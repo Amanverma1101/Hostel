@@ -37,6 +37,7 @@ const MessMenuEdit = () => {
     const handleReset=()=>{
         setDay("");
         setMealTime("");
+        setCurrMeal([]);
     } 
     
     const seeMenu=async(e)=>{  
